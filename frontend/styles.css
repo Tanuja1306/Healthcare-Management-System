@@ -124,3 +124,55 @@ form .form-control:focus {
     }
 }
 
+/* Profile Styles */
+.card {
+    border-radius: 10px;
+}
+
+.card-header {
+    border-bottom: 1px solid #dee2e6;
+    font-size: 1.25rem;
+}
+
+.card-body {
+    font-size: 1rem;
+}
+
+.img-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto; /* Center the placeholder horizontally */
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Enhanced Button */
+.btn-primary {
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 5px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
