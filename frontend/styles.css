@@ -77,3 +77,50 @@ footer a:hover {
     color: #fff; /* Ensure the text color matches */
     margin-top: 1rem;
 }
+
+/* General Card Styles */
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Form Styles */
+form .form-control {
+    border-radius: 5px;
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+form .form-control:focus {
+    box-shadow: 0 0 0 .25rem rgba(38, 143, 255, .25);
+    border-color: #007bff;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Responsive Form Section */
+@media (max-width: 767.98px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
