@@ -1,7 +1,10 @@
-// Import required modules
+// backend/server.js
+
+const mongoose = require('mongoose');
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const path = require('path');
 
 // Initialize dotenv to load environment variables
 dotenv.config();
@@ -13,16 +16,19 @@ const app = express();
 app.use(express.json()); // Parses incoming JSON requests
 app.use(cors()); // Enable CORS
 
-// Import routes
-const authRoutes = require('./routes/authRoutes');
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.error('MongoDB connection error:', err));
 
-// Use routes
-app.use('/api/auth', authRoutes); // This will map the routes from authRoutes.js
+// Use the dummy authentication middleware
+app.use(require('./middleware/authMiddleware'));
 
-// Define a default route
-app.get('/', (req, res) => {
-    res.send('Welcome to Healthcare Management System');
-});
+// Serve static files from the 'frontend' directory
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+// Define routes
+app.use('/', require('./routes/webRoutes')); // Web routes
 
 // Error handling middleware
 app.use((req, res, next) => {
