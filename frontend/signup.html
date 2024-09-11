@@ -49,19 +49,19 @@
                         <form>
                             <div class="mb-3">
                                 <label for="signupName" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="signupName" required>
+                                <input type="text" class="form-control" id="signupName" required placeholder="Enter your full name">
                             </div>
                             <div class="mb-3">
                                 <label for="signupEmail" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="signupEmail" required>
+                                <input type="email" class="form-control" id="signupEmail" required placeholder="Enter your email address">
                             </div>
                             <div class="mb-3">
                                 <label for="signupPassword" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="signupPassword" required>
+                                <input type="password" class="form-control" id="signupPassword" required placeholder="Enter your password">
                             </div>
                             <div class="mb-3">
                                 <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="signupConfirmPassword" required>
+                                <input type="password" class="form-control" id="signupConfirmPassword" required placeholder="Confirm your password">
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Sign Up</button>
                             <div class="text-center mt-3">
@@ -76,5 +76,26 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+<script>
+    function validatePasswordMatch() {
+         const password = document.getElementById('signupPassword').value;
+         const confirmPassword = document.getElementById('signupConfirmPassword').value;
+         if (password !== confirmPassword) {
+             alert("Passwords do not match.");
+             return false;
+         }
+         return true;
+     }
+     
+     document.querySelector('form').addEventListener('submit', function(event) {
+         if (!validatePasswordMatch()) {
+             event.preventDefault();
+         }
+     });
+ 
+ </script>
+ 
 </body>
 </html>
