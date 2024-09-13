@@ -6,6 +6,11 @@ exports.signup = (req, res) => {
   if (!email || !password) {
     return res.status(400).send('Email and password are required');
   }
+  const user = users.find(user => user.email === email);
+  if(user)
+  {
+    return res.status(400).send('User already exists');
+  }
   // Add user to "database"
   users.push({ email, password });
   res.status(201).send('User signed up successfully');
