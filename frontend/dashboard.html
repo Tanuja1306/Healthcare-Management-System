@@ -139,6 +139,9 @@
                 </table>
             </div>
         </div>
+
+        <!-- Error/Content Display -->
+        <div id="content" class="mt-4"></div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
@@ -214,6 +217,49 @@
                     }
                 }
             }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('token');
+            console.log('Token:', token); // Ensure the token is retrieved correctly
+
+            if (!token) {
+                console.error('Token not found');
+                document.getElementById('content').innerText = 'No token found. Please sign in.';
+                window.location.href = 'signin.html'; // Redirect to sign in page if no token is found
+                return;
+            }
+
+            // Fetch some data or check the token validity
+            fetch('http://localhost:3000/dashboard', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(response => {
+                console.log('Response status:', response.status); // Log response status
+                if (response.status === 401) {
+                    // Unauthorized access
+                    document.getElementById('content').innerText = 'Invalid token. Please sign in again.';
+                    localStorage.removeItem('token'); // Remove invalid token
+                    window.location.href = 'signin.html'; // Redirect to sign in page
+                    throw new Error('Unauthorized');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data); // Log response data
+                if (data.message) {
+                    document.getElementById('content').innerText = data.message;
+                } else {
+                    document.getElementById('content').innerText = 'Welcome to your dashboard!';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching dashboard data:', error);
+                document.getElementById('content').innerText = 'Error fetching dashboard data.';
+            });
         });
     </script>
 </body>

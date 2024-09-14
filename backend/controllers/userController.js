@@ -1,4 +1,7 @@
-const User = require('../models/userModel');
+// backend/controllers/userController.js
+
+const User = require('../models/userModel'); 
+const jwt = require('jsonwebtoken');
 
 // Sign up controller
 exports.signup = async (req, res) => {
@@ -39,7 +42,8 @@ exports.signin = async (req, res) => {
 
     const isMatch = await user.isValidPassword(password);
     if (isMatch) {
-      res.status(200).json({ message: 'User signed in successfully' });
+      const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      res.status(200).json({ message: 'User signed in successfully', token });
     } else {
       res.status(401).json({ message: 'Invalid email or password' });
     }
