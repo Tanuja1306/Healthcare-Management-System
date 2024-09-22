@@ -7,7 +7,9 @@ const healthRecordSchema = new mongoose.Schema({
   date: { type: Date, required: true },
   recordType: { type: String, required: true },
   details: { type: String }
-});
+}, 
+{ timestamps: true }  // Adds createdAt and updatedAt fields
+);
 
 const HealthRecord = mongoose.model('HealthRecord', healthRecordSchema);
 module.exports = HealthRecord;
