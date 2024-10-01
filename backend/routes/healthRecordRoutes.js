@@ -53,7 +53,7 @@ router.delete('/:id', async (req, res) => {
         if (!healthRecord) {
             return res.status(404).json({ message: 'Record not found' });
         }
-        res.status(204).send();
+        res.status(204).json({message:"record deleted successfully"});
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
