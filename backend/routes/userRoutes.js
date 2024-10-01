@@ -84,7 +84,7 @@ router.delete('/users/:id', authenticateJWT, (req, res) => {
     const userIndex = users.findIndex(u => u.id === parseInt(req.params.id));
     if (userIndex !== -1) {
         users.splice(userIndex, 1);
-        res.status(204).json();
+        res.status(204).json({message:"user deleted successfully"});
     } else {
         res.status(404).json({ message: 'User not found' });
     }
