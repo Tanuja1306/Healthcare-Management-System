@@ -77,3 +77,102 @@ footer a:hover {
     color: #fff; /* Ensure the text color matches */
     margin-top: 1rem;
 }
+
+/* General Card Styles */
+.card {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Form Styles */
+form .form-control {
+    border-radius: 5px;
+    box-shadow: none;
+    border-color: #ced4da;
+}
+
+form .form-control:focus {
+    box-shadow: 0 0 0 .25rem rgba(38, 143, 255, .25);
+    border-color: #007bff;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Responsive Form Section */
+@media (max-width: 767.98px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Profile Styles */
+.card {
+    border-radius: 10px;
+}
+
+.card-header {
+    border-bottom: 1px solid #dee2e6;
+    font-size: 1.25rem;
+}
+
+.card-body {
+    font-size: 1rem;
+}
+
+.img-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto; /* Center the placeholder horizontally */
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Enhanced Button */
+.btn-primary {
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 5px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
